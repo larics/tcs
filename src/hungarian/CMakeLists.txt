@@ -2,7 +2,7 @@ set(SUBSYS_NAME hungarian)
 
 set(HUNGARIAN_SOURCE_DIR ${PROJECT_SOURCE_DIR}/third-party/hungarian-v2.0)
 
-include_directories(${CMAKE_SOURCE_DIR}/include/${SUBSYS_NAME})
+include_directories(${PROJECT_SOURCE_DIR}/include/${SUBSYS_NAME})
 include_directories(${HUNGARIAN_SOURCE_DIR})
 
 add_library(hungarian

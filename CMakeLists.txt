@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(TCS)
 find_package(PCL 1.7.2 REQUIRED)
-set(CMAKE_BUILD_TYPE "Release")
 
 option(WITH_QT_GUI "Build Qt GUI application." ON)
 
@@ -28,6 +27,7 @@ add_definitions(-Wno-deprecated)
 add_definitions(-fpermissive)
 
 # Documentation
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake/Modules)
 set(DOXYFILE_LATEX false)
 include(UseDoxygen)
 

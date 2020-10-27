@@ -53,14 +53,6 @@
 #define POS_INF 10e8
 #define NEG_INF -10e8
 
-#ifndef min 
-  #define min(x, y) (((x) > (y)) ? (y) : (x))
-#endif
-
-#ifndef max
-  #define max(x, y) (((x) > (y)) ? (x) : (y))
-#endif
-
 using namespace std;
 //using namespace mtl;
 
