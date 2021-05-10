@@ -18,8 +18,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 # add include folder to the list include directories
 include_directories(${PROJECT_SOURCE_DIR}/include ${EIGEN_INCLUDE_DIR})
 
-add_definitions(-std=c++11)
-
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   add_definitions(-fcolor-diagnostics)
   set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
