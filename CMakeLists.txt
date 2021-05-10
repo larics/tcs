@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+option(WITH_QT_GUI "Build Qt GUI application." 0)
+option(BUILD_VISUALIZATION "Build visualization for tcs" 0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules/" ${CMAKE_MODULE_PATH})
 
@@ -62,33 +64,36 @@ target_link_libraries(io
   ${PCL_LIBRARIES}
 )
 
-add_executable(app_random_walker_segmentation
-  src/random_walker_segmentation_app.cpp
-)
-target_link_libraries(app_random_walker_segmentation
-  ${PCL_LIBRARIES}
-  tviewer
-  random_walker_segmentation
-  io
-)
 
-add_executable(view_point_cloud_graph
-  src/view_point_cloud_graph.cpp
-)
-target_link_libraries(view_point_cloud_graph
-  ${PCL_LIBRARIES}
-  tviewer
-  io
-)
+if (BUILD_VISUALIZATION)
+  add_executable(app_random_walker_segmentation
+    src/random_walker_segmentation_app.cpp
+  )
+  target_link_libraries(app_random_walker_segmentation
+    ${PCL_LIBRARIES}
+    tviewer
+    random_walker_segmentation
+    io
+  )
 
-add_executable(segmentation_evaluation
-  src/segmentation_evaluation.cpp
-)
-target_link_libraries(segmentation_evaluation
-  ${PCL_LIBRARIES}
-  tviewer
-  hungarian
-)
+  add_executable(view_point_cloud_graph
+    src/view_point_cloud_graph.cpp
+  )
+  target_link_libraries(view_point_cloud_graph
+    ${PCL_LIBRARIES}
+    tviewer
+    io
+  )
+
+  add_executable(segmentation_evaluation
+    src/segmentation_evaluation.cpp
+  )
+  target_link_libraries(segmentation_evaluation
+    ${PCL_LIBRARIES}
+    tviewer
+    hungarian
+  )
+endif()
 
 add_executable(create_seeds
   src/create_seeds.cpp
