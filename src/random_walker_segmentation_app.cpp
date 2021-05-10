@@ -1,6 +1,7 @@
 #include <boost/make_shared.hpp>
 #include <boost/format.hpp>
 
+#include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/console/parse.h>
 #include <pcl/console/print.h>
 #include <pcl/point_cloud.h>
