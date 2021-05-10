@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(TCS)
 find_package(PCL REQUIRED)
 
-option(WITH_QT_GUI "Build Qt GUI application." OFF)
+# NOTE: The following three lines are needed to force compile PCL with -std=c++17
+# see issue https://github.com/PointCloudLibrary/pcl/issues/2686
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules/" ${CMAKE_MODULE_PATH})
 

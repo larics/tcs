@@ -1,5 +1,9 @@
 find_package (VTK REQUIRED)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 if(VTK_VERSION VERSION_LESS "6.0")
   message(STATUS "VTK version is 5 or below, therefore using Qt4")
   find_package(Qt4 REQUIRED)
